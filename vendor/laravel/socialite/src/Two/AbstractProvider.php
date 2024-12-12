@@ -3,6 +3,7 @@
 namespace Laravel\Socialite\Two;
 
 use GuzzleHttp\Client;
+use GuzzleHttp\RequestOptions;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Arr;
@@ -166,7 +167,7 @@ abstract class AbstractProvider implements ProviderContract
         }
 
         if ($this->usesPKCE()) {
-            $this->request->session()->put('code_verifier', $codeVerifier = $this->getCodeVerifier());
+            $this->request->session()->put('code_verifier', $this->getCodeVerifier());
         }
 
         return new RedirectResponse($this->getAuthUrl($state));
@@ -238,13 +239,26 @@ abstract class AbstractProvider implements ProviderContract
 
         $response = $this->getAccessTokenResponse($this->getCode());
 
-        $this->user = $this->mapUserToObject($this->getUserByToken(
-            $token = Arr::get($response, 'access_token')
-        ));
+        $user = $this->getUserByToken(Arr::get($response, 'access_token'));
 
-        return $this->user->setToken($token)
-                    ->setRefreshToken(Arr::get($response, 'refresh_token'))
-                    ->setExpiresIn(Arr::get($response, 'expires_in'));
+        return $this->userInstance($response, $user);
+    }
+
+    /**
+     * Create a user instance from the given data.
+     *
+     * @param  array  $response
+     * @param  array  $user
+     * @return \Laravel\Socialite\Two\User
+     */
+    protected function userInstance(array $response, array $user)
+    {
+        $this->user = $this->mapUserToObject($user);
+
+        return $this->user->setToken(Arr::get($response, 'access_token'))
+            ->setRefreshToken(Arr::get($response, 'refresh_token'))
+            ->setExpiresIn(Arr::get($response, 'expires_in'))
+            ->setApprovedScopes(explode($this->scopeSeparator, Arr::get($response, 'scope', '')));
     }
 
     /**
@@ -273,7 +287,7 @@ abstract class AbstractProvider implements ProviderContract
 
         $state = $this->request->session()->pull('state');
 
-        return ! (strlen($state) > 0 && $this->request->input('state') === $state);
+        return empty($state) || $this->request->input('state') !== $state;
     }
 
     /**
@@ -285,11 +299,22 @@ abstract class AbstractProvider implements ProviderContract
     public function getAccessTokenResponse($code)
     {
         $response = $this->getHttpClient()->post($this->getTokenUrl(), [
-            'headers' => ['Accept' => 'application/json'],
-            'form_params' => $this->getTokenFields($code),
+            RequestOptions::HEADERS => $this->getTokenHeaders($code),
+            RequestOptions::FORM_PARAMS => $this->getTokenFields($code),
         ]);
 
         return json_decode($response->getBody(), true);
+    }
+
+    /**
+     * Get the headers for the access token request.
+     *
+     * @param  string  $code
+     * @return array
+     */
+    protected function getTokenHeaders($code)
+    {
+        return ['Accept' => 'application/json'];
     }
 
     /**
@@ -312,7 +337,44 @@ abstract class AbstractProvider implements ProviderContract
             $fields['code_verifier'] = $this->request->session()->pull('code_verifier');
         }
 
-        return $fields;
+        return array_merge($fields, $this->parameters);
+    }
+
+    /**
+     * Refresh a user's access token with a refresh token.
+     *
+     * @param  string  $refreshToken
+     * @return \Laravel\Socialite\Two\Token
+     */
+    public function refreshToken($refreshToken)
+    {
+        $response = $this->getRefreshTokenResponse($refreshToken);
+
+        return new Token(
+            Arr::get($response, 'access_token'),
+            Arr::get($response, 'refresh_token'),
+            Arr::get($response, 'expires_in'),
+            explode($this->scopeSeparator, Arr::get($response, 'scope', ''))
+        );
+    }
+
+    /**
+     * Get the refresh token response for the given refresh token.
+     *
+     * @param  string  $refreshToken
+     * @return array
+     */
+    protected function getRefreshTokenResponse($refreshToken)
+    {
+        return json_decode($this->getHttpClient()->post($this->getTokenUrl(), [
+            RequestOptions::HEADERS => ['Accept' => 'application/json'],
+            RequestOptions::FORM_PARAMS => [
+                'grant_type' => 'refresh_token',
+                'refresh_token' => $refreshToken,
+                'client_id' => $this->clientId,
+                'client_secret' => $this->clientSecret,
+            ],
+        ])->getBody(), true);
     }
 
     /**

@@ -14,7 +14,7 @@
                 <div class="col-lg-8">
                     <div class="section-title pb-10 " data-aos="fade-right">
                         <h4 class="title">L'innovation au service des professionnels de santé.</h4>
-                        <p class="text my__text">Dans un domaine extrêmement sensible comme celui de la santé, il est crucial pour les médecins de bénéficier du même degré de confort lors de l’utilisation de leur logiciel médical que lors de l’utilisation d’autres applications. Forts de cette reconnaissance, nous avons décidé de réinventer le logiciel de gestion de cabinet médical en utilisant les dernières technologies afin d'offrir aux médecins la flexibilité et la simplicité requises.</p>
+                        <p class="text my__text">Dans un domaine extrêmement sensible comme celui de la santé, il est crucial pour les médecins de bénéficier du même degré de confort lors de l’utilisation de leur logiciel médical que lors de l’utilisation d’autres applications. Forts de cette reconnaissance, nous avons décidé de développer le logiciel de gestion de cabinet médical en utilisant les dernières technologies afin d'offrir aux médecins la flexibilité et la simplicité requises.</p>
                     </div>
                 </div>
                 <div class="col-lg-4" data-aos="fade-left">
@@ -94,7 +94,7 @@
                                 </div>
                                 <div class="features-content media-body">
                                     <h4 class="features-title">Gestion des Rendez-vous</h4>
-                                    <p class="text">TAYSSIR s’occupe de tout, de la prise de rendez-vous aux annulations. Urgences, visites de suivi, les consultations sont programmées en fonction de critères définis par le praticien</p>
+                                    <p class="text">Myclinic s’occupe de tout, de la prise de rendez-vous aux annulations. Urgences, visites de suivi, les consultations sont programmées en fonction de critères définis par le praticien</p>
                                 </div>
                             </div> <!-- features content -->
                         </div>
@@ -105,7 +105,7 @@
                                 </div>
                                 <div class="features-content media-body">
                                     <h4 class="features-title">Gestion dossiers patients</h4>
-                                    <p class="text">Afin de faciliter la consultation médicale, TAYSSIR vous assure un suivi détaillé du dossier médical qui englobe toutes les informations de votre patient et toutes les fonctionnalités du système</p>
+                                    <p class="text">Afin de faciliter la consultation médicale, Myclinic vous assure un suivi détaillé du dossier médical qui englobe toutes les informations de votre patient et toutes les fonctionnalités du système</p>
                                 </div>
                             </div> <!-- features content -->
                         </div>
@@ -150,7 +150,7 @@
                                 </div>
                                 <div class="features-content media-body">
                                     <h4 class="features-title">Facturation et paiemenrs</h4>
-                                    <p class="text">Suivez efficacement l'état financier de votre établissement, avec un gestion détaillé  de vos factures</p>
+                                    <p class="text">Suivez efficacement l'état financier de votre cabinet, avec un gestion détaillé  de vos factures</p>
                                 </div>
                             </div> <!-- features content -->
                         </div>
@@ -209,7 +209,7 @@
             <div class="row">
                 <div class="col-lg-12">
                     <div class="row">
-                        <div class="col-md-2 offset-1"  data-aos="zoom-out" data-aos-duration="3000">
+                        <div class="col-md-2" data-aos="zoom-out" data-aos-duration="3000">
                             <div class="d_flex align-items-center justify-content-center my__cat">
                                 <a href="{{ route('psychologue') }}">
                                     <img src="{{ asset('public/theme/default/assets/images/icon1-hover_.png') }}" alt="" class="my__img">
@@ -220,9 +220,9 @@
 
                         <div class="col-md-2" data-aos="zoom-out" data-aos-duration="3000">
                             <div class="d_flex align-items-center justify-content-center my__cat">
-                                <a href="{{ route('cardiologie') }}">
-                                    <img src="{{ asset('public/theme/default/assets/images/icon2-hover_.png') }}" alt="" class="my__img">
-                                    <p class="text-center">Cardiologie</p>
+                                <a href="{{ route('generaliste') }}">
+                                    <img src="{{ asset('public/theme/default/assets/images/icon7-hover_.png') }}" alt="" class="my__img">
+                                    <p class="text-center">Généraliste</p>
                                 </a>
                             </div>
                         </div>
@@ -238,14 +238,14 @@
 
                         <div class="col-md-2" data-aos="zoom-out" data-aos-duration="3000">
                             <div class="d_flex align-items-center justify-content-center my__cat">
-                                <a href="{{ route('dermatolgie') }}">
-                                    <img src="{{ asset('public/theme/default/assets/images/icon4-hover.png') }}" alt="" class="my__img">
-                                    <p class="text-center">Dermatolgie</p>
+                                <a href="{{ route('ophtalmologue') }}">
+                                    <img src="{{ asset('public/theme/default/assets/images/icon11-hover.png') }}" alt="" class="my__img">
+                                    <p class="text-center">Ophtalmologue</p>
                                 </a>
                             </div>
                         </div>
 
-                        <div class="col-md-2 " data-aos="zoom-out" data-aos-duration="3000">
+                        <div class="col-md-2" data-aos="zoom-out" data-aos-duration="3000">
                             <div class="d_flex align-items-center justify-content-center my__cat">
                                 <a href="{{ route('pediatre') }}">
                                     <img src="{{ asset('public/theme/default/assets/images/icon5-hover.png') }}" alt="" class="my__img">
@@ -254,22 +254,40 @@
                             </div>
                         </div>
 
-                        <div class="col-md-2  offset-1 " data-aos="zoom-out" data-aos-duration="3000">
+                        <div class="col-md-2" data-aos="zoom-out" data-aos-duration="3000">
+                            <div class="d_flex align-items-center justify-content-center my__cat">
+                                <a href="{{ route('rhumataulogue') }}">
+                                    <img src="{{ asset('public/theme/default/assets/images/icon16-hover_.png') }}" alt="" class="my__img">
+                                    <p class="text-center">Rhumataulogue</p>
+                                </a>
+                            </div>
+                        </div>
+
+                        <div class="col-md-2" data-aos="zoom-out" data-aos-duration="3000">
+                            <div class="d_flex align-items-center justify-content-center my__cat">
+                                <a href="{{ route('cardiologie') }}">
+                                    <img src="{{ asset('public/theme/default/assets/images/icon2-hover_.png') }}" alt="" class="my__img">
+                                    <p class="text-center">Cardiologie</p>
+                                </a>
+                            </div>
+                        </div>
+
+                        <div class="col-md-2" data-aos="zoom-out" data-aos-duration="3000">
+                            <div class="d_flex align-items-center justify-content-center my__cat">
+                                <a href="{{ route('dermatolgie') }}">
+                                    <img src="{{ asset('public/theme/default/assets/images/icon4-hover.png') }}" alt="" class="my__img">
+                                    <p class="text-center">Dermatolgie</p>
+                                </a>
+                            </div>
+                        </div>
+
+                        <div class="col-md-2" data-aos="zoom-out" data-aos-duration="3000">
                             <div class="d_flex align-items-center justify-content-center my__cat">
                                 <a href="{{ route('gastrologie') }}">
                                     <img src="{{ asset('public/theme/default/assets/images/icon6-hover.png') }}" alt="" class="my__img">
                                     <p class="text-center">Gastrologie</p>
                                 </a>
                             </div>
-                        </div>
-
-                        <div class="col-md-2 " data-aos="zoom-out" data-aos-duration="3000">
-                            <div class="d_flex align-items-center justify-content-center my__cat">
-                                <a href="{{ route('generaliste') }}">
-                                    <img src="{{ asset('public/theme/default/assets/images/icon7-hover_.png') }}" alt="" class="my__img">
-                                    <p class="text-center">Généraliste</p>
-                                </a>
-                            </div >
                         </div>
 
                         <div class="col-md-2" data-aos="zoom-out" data-aos-duration="3000">
@@ -290,20 +308,10 @@
                             </div>
                         </div>
 
-
-                        <div class="col-md-2" data-aos="zoom-out" data-aos-duration="3000">
-                            <div class="d_flex align-items-center justify-content-center my__cat">
-                                <a href="{{ route('entreprise') }}">
-                                    <img src="{{ asset('public/theme/default/assets/images/icon17-hover.png') }}" alt=""class="my__img">
-                                    <p class="text-center">Clinique</p>
-                                </a>
-                            </div>
-                        </div>
                         <div class="col-md-2" data-aos="zoom-out" data-aos-duration="3000">
                             <div class="d_flex align-items-center justify-content-center my__cat">
                                 <a href="{{ route('neurologue') }}">
                                     <img src="{{ asset('public/theme/default/assets/images/icon10-hover.png') }}" alt="" class="my__img">
-
                                     <p class="text-center">Neurologue</p>
                                 </a>
                             </div>
@@ -311,31 +319,9 @@
 
                         <div class="col-md-2" data-aos="zoom-out" data-aos-duration="3000">
                             <div class="d_flex align-items-center justify-content-center my__cat">
-                                <a href="{{ route('ophtalmologue') }}">
-                                    <img src="{{ asset('public/theme/default/assets/images/icon11-hover.png') }}" alt="" class="my__img">
-
-                                    <p class="text-center">Ophtalmologue</p>
-                                </a>
-                            </div>
-
-                        </div>
-
-                        <div class="col-md-2" data-aos="zoom-out" data-aos-duration="3000">
-                            <div class="d_flex align-items-center justify-content-center my__cat">
-                                <a  href="{{ route('orl') }}">
+                                <a href="{{ route('orl') }}">
                                     <img src="{{ asset('public/theme/default/assets/images/icon12-hover.png') }}" alt="" class="my__img">
-
-                                    <p  class="text-center">Orl</p>
-
-                                </a>
-                            </div>
-                        </div>
-
-                        <div class="col-md-2 " data-aos="zoom-out" data-aos-duration="3000">
-                            <div class="d_flex align-items-center justify-content-center my__cat">
-                                <a href="{{ route('pediatre') }}">
-                                    <img src="{{ asset('public/theme/default/assets/images/icon13-hover.png') }}" alt="" class="my__img">
-                                    <p class="text-center">Pédiatre</p>
+                                    <p class="text-center">Orl</p>
                                 </a>
                             </div>
                         </div>
@@ -348,20 +334,6 @@
                                 </a>
                             </div>
                         </div>
-
-
-
-                        <div class="col-md-2" data-aos="zoom-out" data-aos-duration="3000">
-                            <div class="d_flex align-items-center justify-content-center my__cat">
-                                <a href="{{ route('rhumataulogue') }}">
-                                    <img src="{{ asset('public/theme/default/assets/images/icon16-hover_.png') }}" alt="" class="my__img">
-                                    <p class="text-center">Rhumataulogue</p>
-                                </a>
-                            </div>
-                        </div>
-
-
-
                     </div>
                 </div>
             </div>
@@ -384,9 +356,9 @@
                         <p class="text">Tarifs bien optimisés pour répondre à tous les besoins
 
                         </p>
-                    </div> 
+                    </div>
                 </div>
-            </div>  
+            </div>
 
             <div class="row mt-4">
                 <div class="col-md-12 text-center">
@@ -483,7 +455,7 @@
 
 
                             </div>
-                        </div>  
+                        </div>
                     </div>
 
 
@@ -566,13 +538,13 @@
                                     <a class="main-btn" target="_blank" href="https://tayssir.cloud/index.php?rp=/store/tayssir-digital-school/business">Démarrer</a>
                                 @endif
                             </div>
-                        </div>  
+                        </div>
                     </div>
 
                 @endforeach
 
-            </div>  
-        </div>  
+            </div>
+        </div>
     </section>
 
 
@@ -586,7 +558,7 @@
 
 
     <!--====== CALL TO ACTION PART START ======-->
-    
+
     <p style="margin-bottom: 100px;">
 
     <section id="call-to-action" class="call-to-action">
@@ -631,7 +603,7 @@
                                 {{--                            <img src="{{ asset('public/theme/default/assets/images/doctor.png') }}" alt="user" width="100px">--}}
                                 <div class="my__content__slide">
                                     <h5>Dr H.Kenza (Pédiatre)</h5>
-                                    <p>L'application TAYSSIR de gestion de cabinet médical a également renforcé la communication avec les patients. Le portail patient permet aux patients de prendre des rendez-vous en ligne et d'accéder à leurs données, ce qui simplifie leur expérience</p>
+                                    <p>L'application Myclinic de gestion de cabinet médical a également renforcé la communication avec les patients. Le portail patient permet aux patients de prendre des rendez-vous en ligne et d'accéder à leurs données, ce qui simplifie leur expérience</p>
                                 </div>
                             </div>
 

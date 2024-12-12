@@ -4,13 +4,18 @@ namespace Razorpay\Tests;
 
 use Razorpay\Api\Request;
 
-class refundTest extends TestCase
+class RefundTest extends TestCase
 {
-    private $paymentId = 'pay_IEjvQO0923IqEu';
+    /**
+     * Specify unique payment id & refund id
+     * for example pay_LatkcPaGiDxgRG & rfnd_IEjzeVghAS4vd1
+     */
 
-    private $refundId = 'rfnd_IEjzeVghAS4vd1';
+    private $paymentId = "pay_LatkcPaGiDxgRG";
 
-    public function setUp()
+    private $refundId = "rfnd_Lcsb6JNwQVAtpi";
+
+    public function setUp(): void
     {
         parent::setUp();
     }

@@ -23,7 +23,7 @@
 			<div class="col-lg-12">
 				<div class="section-title text-left pb-10">
 					<h4 class="title">Création d'école en ligne</h4>
-					<p class="text"><b>TAYSSIR DIGITAL SCHOOL </b>Une plateforme tout en un pour la gestion quotidienne de votre établissement scolaire.
+					<p class="text"><b>Myclinic </b>Une plateforme tout en un pour la gestion quotidienne de votre cabinet scolaire.
 					</p>
 				</div> <!-- section title -->
 			</div>
@@ -54,9 +54,9 @@
                                                                 <div class="single-form form-group">
                                                                         <input type="text" name="tel" value="{{ old('tel') }}" placeholder="Num de téléphone" required="required">
                                                                         @if ($errors->has('tel'))
-                                            <div class="help-block with-errors">{{ $errors->first('tel') }}</div> 
+                                            <div class="help-block with-errors">{{ $errors->first('tel') }}</div>
                                         @endif
-                                                                </div>  
+                                                                </div>
                                                         </div> -->
 
 
@@ -74,14 +74,14 @@
 									@if ($errors->has('password'))
 	                                    <div class="help-block with-errors">{{ $errors->first('password') }}</div>
 	                                @endif
-								</div> 
-							</div> 
+								</div>
+							</div>
 							<div class="col-md-6">
 								<div class="single-form form-group">
 									<input type="password" name="password_confirmation" placeholder="Confirmer le mot de passe" required="required">
 									<div class="help-block with-errors"></div>
-								</div> 
-							</div> 
+								</div>
+							</div>
 
 							<div class="col-md-6">
 								<div class="single-form form-group">

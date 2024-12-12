@@ -4,11 +4,16 @@ namespace Razorpay\Tests;
 
 use Razorpay\Api\Request;
 
-class planTest extends TestCase
+class PlanTest extends TestCase
 {
-    private $planId = 'plan_IEeswu4zFBRGwi';
+    /**
+     * Specify unique plan id
+     * for example plan_IEeswu4zFBRGwi 
+     */
 
-    public function setUp()
+    private $planId = "plan_IEeswu4zFBRGwi";
+
+    public function setUp(): void
     {
         parent::setUp();
     }
@@ -27,12 +32,15 @@ class planTest extends TestCase
 
     /**
      * Fetch all plans
+     * @covers \Razorpay\Api\Collection::count
      */
     public function testFetchAllPlans()
     {
         $data = $this->api->plan->all();
 
         $this->assertTrue(is_array($data->toArray()));
+
+        $this->assertTrue($data->count() >= 0);
 
         $this->assertTrue(is_array($data['items']));
     }

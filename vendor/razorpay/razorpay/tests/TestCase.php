@@ -1,17 +1,26 @@
 <?php
 
 namespace Razorpay\Tests;
+require_once realpath(__DIR__ . "/../vendor/autoload.php");
 
 use Razorpay\Api\Api;
 use Razorpay\Api\Request;
+use PHPUnit\Framework\TestCase as PhpUnitTest;
+use Dotenv\Dotenv;
 
-class TestCase extends \PHPUnit_Framework_TestCase
+if (class_exists('Dotenv'))
+{
+ $dotenv = Dotenv::createImmutable(__DIR__);
+ $dotenv->load();
+}
+
+class TestCase extends PhpUnitTest
 {
     
-    public function setUp()
+    public function setUp(): void
     {
-        $apiKey = 'rzp_test_1DP5mmOlF5G5ag';
-        $apiSecret = 'thisissupersecret';
+        $apiKey = getenv("RAZORPAY_API_KEY") ? getenv("RAZORPAY_API_KEY") : "";
+        $apiSecret = getenv("RAZORPAY_API_SECRET") ? getenv("RAZORPAY_API_SECRET") : "";
         
         $this->api = new Api( $apiKey, $apiSecret);
     }

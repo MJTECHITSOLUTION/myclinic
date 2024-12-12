@@ -5,14 +5,18 @@ namespace Maatwebsite\Excel\Jobs;
 use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Foundation\Bus\Dispatchable;
+use Illuminate\Queue\InteractsWithQueue;
 use Maatwebsite\Excel\Concerns\FromQuery;
+use Maatwebsite\Excel\Concerns\WithEvents;
+use Maatwebsite\Excel\Events\AfterChunk;
 use Maatwebsite\Excel\Files\TemporaryFile;
+use Maatwebsite\Excel\HasEventBus;
 use Maatwebsite\Excel\Jobs\Middleware\LocalizeJob;
 use Maatwebsite\Excel\Writer;
 
 class AppendQueryToSheet implements ShouldQueue
 {
-    use Queueable, Dispatchable, ProxyFailures;
+    use Queueable, Dispatchable, ProxyFailures, InteractsWithQueue, HasEventBus;
 
     /**
      * @var TemporaryFile
@@ -45,12 +49,12 @@ class AppendQueryToSheet implements ShouldQueue
     public $chunkSize;
 
     /**
-     * @param FromQuery       $sheetExport
-     * @param TemporaryFile   $temporaryFile
-     * @param string          $writerType
-     * @param int             $sheetIndex
-     * @param int             $page
-     * @param int             $chunkSize
+     * @param  FromQuery  $sheetExport
+     * @param  TemporaryFile  $temporaryFile
+     * @param  string  $writerType
+     * @param  int  $sheetIndex
+     * @param  int  $page
+     * @param  int  $chunkSize
      */
     public function __construct(
         FromQuery $sheetExport,
@@ -79,7 +83,7 @@ class AppendQueryToSheet implements ShouldQueue
     }
 
     /**
-     * @param Writer $writer
+     * @param  Writer  $writer
      *
      * @throws \PhpOffice\PhpSpreadsheet\Exception
      * @throws \PhpOffice\PhpSpreadsheet\Reader\Exception
@@ -87,6 +91,10 @@ class AppendQueryToSheet implements ShouldQueue
     public function handle(Writer $writer)
     {
         (new LocalizeJob($this->sheetExport))->handle($this, function () use ($writer) {
+            if ($this->sheetExport instanceof WithEvents) {
+                $this->registerListeners($this->sheetExport->registerEvents());
+            }
+
             $writer = $writer->reopen($this->temporaryFile, $this->writerType);
 
             $sheet = $writer->getSheetByIndex($this->sheetIndex);
@@ -96,6 +104,9 @@ class AppendQueryToSheet implements ShouldQueue
             $sheet->appendRows($query->get(), $this->sheetExport);
 
             $writer->write($this->sheetExport, $this->temporaryFile, $this->writerType);
+
+            $this->raise(new AfterChunk($sheet, $this->sheetExport, ($this->page - 1) * $this->chunkSize));
+            $this->clearListeners();
         });
     }
 }

@@ -3,7 +3,7 @@
 /*
  * This file is part of Psy Shell.
  *
- * (c) 2012-2020 Justin Hileman
+ * (c) 2012-2023 Justin Hileman
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
@@ -17,12 +17,9 @@ class GitHubChecker implements Checker
 {
     const URL = 'https://api.github.com/repos/bobthecow/psysh/releases/latest';
 
-    private $latest;
+    private ?string $latest = null;
 
-    /**
-     * @return bool
-     */
-    public function isLatest()
+    public function isLatest(): bool
     {
         // version_compare doesn't handle semver completely;
         // strip pre-release and build metadata before comparing
@@ -31,10 +28,7 @@ class GitHubChecker implements Checker
         return \version_compare($version, $this->getLatest(), '>=');
     }
 
-    /**
-     * @return string
-     */
-    public function getLatest()
+    public function getLatest(): string
     {
         if (!isset($this->latest)) {
             $this->setLatest($this->getVersionFromTag());
@@ -43,18 +37,12 @@ class GitHubChecker implements Checker
         return $this->latest;
     }
 
-    /**
-     * @param string $version
-     */
-    public function setLatest($version)
+    public function setLatest(string $version)
     {
         $this->latest = $version;
     }
 
-    /**
-     * @return string|null
-     */
-    private function getVersionFromTag()
+    private function getVersionFromTag(): ?string
     {
         $contents = $this->fetchLatestRelease();
         if (!$contents || !isset($contents->tag_name)) {
@@ -75,7 +63,7 @@ class GitHubChecker implements Checker
         $context = \stream_context_create([
             'http' => [
                 'user_agent' => 'PsySH/'.Shell::VERSION,
-                'timeout'    => 3,
+                'timeout'    => 1.0,
             ],
         ]);
 

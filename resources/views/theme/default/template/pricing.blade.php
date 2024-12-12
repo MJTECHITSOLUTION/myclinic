@@ -118,10 +118,10 @@
                         </div>
                         <div class="pricing-btn text-center">
                             @if($package->id==1)
-                                <a class="main-btn" target="_blank" href="https://tayssir.cloud/index.php?rp=/store/tayssir-digital-school/essentiel">Choisir ce plan</a>
+                                <a class="main-btn" href="https://api.whatsapp.com/send?phone=212659857238&text=Bonjour%2C%20je%20veux%20avoir%20plus%20d%27informations%20sur%20Myclinic." target="_blank">Choisir ce plan</a>
                             @endif
                             @if($package->id==2)
-                                <a class="main-btn" target="_blank" href="https://tayssir.cloud/index.php?rp=/store/tayssir-digital-school/standard">Choisir ce plan</a>
+                                <a class="main-btn" href="https://api.whatsapp.com/send?phone=212659857238&text=Bonjour%2C%20je%20veux%20avoir%20plus%20d%27informations%20sur%20Myclinic." target="_blank">Choisir ce plan</a>
                             @endif
 
 
@@ -200,13 +200,13 @@
                         </div>
                         <div class="pricing-btn text-center">
                             @if($package->id==1)
-                                <a class="main-btn" target="_blank" href="https://tayssir.cloud/index.php?rp=/store/tayssir-digital-school/essentiel">Démarrer</a>
+                                <a class="main-btn" href="https://api.whatsapp.com/send?phone=212659857238&text=Bonjour%2C%20je%20veux%20avoir%20plus%20d%27informations%20sur%20Myclinic." target="_blank">Démarrer</a>
                             @endif
                             @if($package->id==2)
-                                <a class="main-btn" target="_blank" href="https://tayssir.cloud/index.php?rp=/store/tayssir-digital-school/standard">Démarrer</a>
+                                <a class="main-btn" href="https://api.whatsapp.com/send?phone=212659857238&text=Bonjour%2C%20je%20veux%20avoir%20plus%20d%27informations%20sur%20Myclinic." target="_blank">Démarrer</a>
                             @endif
                             @if($package->id==3)
-                                <a class="main-btn" target="_blank" href="https://tayssir.cloud/index.php?rp=/store/tayssir-digital-school/business">Démarrer</a>
+                                <a class="main-btn" href="https://api.whatsapp.com/send?phone=212659857238&text=Bonjour%2C%20je%20veux%20avoir%20plus%20d%27informations%20sur%20Myclinic." target="_blank">Démarrer</a>
                             @endif
                         </div>
                     </div> <!-- single pricing -->

@@ -1,5 +1,5 @@
 composer.lock
 phpunit.xml
 vendor/
-libs/
+reports/
 **/.DS_Store

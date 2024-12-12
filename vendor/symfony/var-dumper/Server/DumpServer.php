@@ -25,10 +25,14 @@ use Symfony\Component\VarDumper\Cloner\Stub;
 class DumpServer
 {
     private $host;
-    private $socket;
     private $logger;
 
-    public function __construct(string $host, LoggerInterface $logger = null)
+    /**
+     * @var resource|null
+     */
+    private $socket;
+
+    public function __construct(string $host, ?LoggerInterface $logger = null)
     {
         if (!str_contains($host, '://')) {
             $host = 'tcp://'.$host;

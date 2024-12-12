@@ -21,11 +21,11 @@
                         </a>
                     </div>
 
-                    <div>
+                    {{-- <div>
                         <a href="" class="main-btn btn-one">
                             Accsses démo
                         </a>
-                    </div>
+                    </div> --}}
 
                 </div>
             </div> <!-- row -->
@@ -120,7 +120,7 @@
                             <img src="
                         {{ asset('public/theme/default/assets/images/screen6.png') }}
                         "
-                                alt="" class="my__img__features">
+                                 alt="" class="my__img__features">
                         </div>
                         <div class="col-md-5 offset-1" data-aos="fade-up" data-aos-duration="2500">
                             <div>
@@ -164,7 +164,7 @@
             <div class="col-lg-12  mb-4">
                 <div class="section-title text-center pb-10" data-aos="fade-up">
                     <h3 class="title text-center  pl-5 ">Fiche patient</h3>
-                </div> <!-- section title -->
+                </div>
             </div>
 
 
@@ -177,22 +177,22 @@
                                 <ul style="margin-top: 40px;margin-bottom: 15px ">
                                     <li style="margin-bottom: 15px;line-height: 30px;">
                                         <i class="lni lni-checkmark" style="margin-right: 10px;color:blue;"></i>
-                                        Fiche patient
+                                        Fiches patients complètes
                                     <li style="margin-bottom: 15px;line-height: 30px;">
                                         <i class="lni lni-checkmark" style="margin-right: 10px;color:blue"></i>
-                                        Fiche d’état de santé du patient et des antécédents
+                                        Dossiers et antécédents médicaux
                                     </li>
                                     <li style="margin-bottom: 15px;line-height: 30px;">
                                         <i class="lni lni-checkmark" style="margin-right: 10px;color:blue;"></i>
-                                        Biométrie
+                                        Suivi des rendez-vous
                                     </li>
                                     <li style="margin-bottom: 15px;line-height: 30px;">
                                         <i class="lni lni-checkmark" style="margin-right: 10px;color:blue"></i>
-                                        Possibilité de joindre des documents
+                                        Historique des consultations
                                     </li>
                                     <li style="margin-bottom: 15px;line-height: 30px;">
                                         <i class="lni lni-checkmark" style="margin-right: 10px;color:blue;"></i>
-                                        Paramétrage des champs personnalisés
+                                        Historique de paiement et rapports détaillés
                                     </li>
                                     <li>
 
@@ -204,9 +204,9 @@
                         <div class="col-md-6" data-aos="fade-right" data-aos-duration="2500">
 
                             <img src="
-                            {{ asset('public/theme/default/assets/images/screen8.png') }}
+                            {{ asset('public/theme/default/assets/images/fichierP.png') }}
                             "
-                                alt="" class="my__img__features">
+                                 alt="" class="my__img__features">
 
                         </div>
 
@@ -232,14 +232,14 @@
                             <img src="
                         {{ asset('public/theme/default/assets/images/screen1.png') }}
                         "
-                                alt="" class="my__img__features">
+                                 alt="" class="my__img__features">
                         </div>
                         <div class="col-md-5 offset-1" data-aos="fade-up" data-aos-duration="2500">
                             <div>
                                 <ul style="margin-top: 40px;">
                                     <li style="margin-bottom:15px;line-height: 30px;">
                                         <i class="lni lni-checkmark"
-                                            style="margin-right: 20px;color:blue; line-height: 30px;"></i>
+                                           style="margin-right: 20px;color:blue; line-height: 30px;"></i>
                                         Templates de consultations, contrôle et observation personnalisable en fonction de
                                         vos besoins
                                     <li style="margin-bottom:15px;line-height: 30px;">
@@ -248,15 +248,19 @@
                                     </li>
                                     <li style="margin-bottom:15px;line-height: 30px;">
                                         <i class="lni lni-checkmark" style="margin-right: 10px;color:blue"></i>
-                                        Gestion de la liste d’attente
+                                        Créez des certificats médicaux
                                     </li>
                                     <li style="margin-bottom:15px;line-height: 30px;">
                                         <i class="lni lni-checkmark" style="margin-right: 10px;color:blue"></i>
-                                        Rapport médical du patient
+                                        Gérez les radios et analyses médicales
                                     </li>
                                     <li style="margin-bottom:15px;line-height: 30px;">
                                         <i class="lni lni-checkmark" style="margin-right: 10px;color:blue;"></i>
-                                        Possibilité d’associer des comptes rendus depuis la consultation
+                                        Enregistrez les examens cliniques
+                                    </li>
+                                    <li style="margin-bottom:15px;line-height: 30px;">
+                                        <i class="lni lni-checkmark" style="margin-right: 10px;color:blue;"></i>
+                                        Sauvegardez toutes les données de vos patients de manière sécurisée
                                     </li>
 
                                 </ul>
@@ -313,7 +317,7 @@
                             <img src="
                         {{ asset('public/theme/default/assets/images/screen4.png') }}
                         "
-                                alt="" class="my__img__features">
+                                 alt="" class="my__img__features">
                         </div>
 
                     </div>
@@ -338,7 +342,7 @@
                             <img src="
                         {{ asset('public/theme/default/assets/images/screen1.png') }}
                         "
-                                alt="" class="my__img__features">
+                                 alt="" class="my__img__features">
                         </div>
                         <div class="col-md-5 offset-1" data-aos="fade-up" data-aos-duration="2500">
                             <div>
@@ -385,11 +389,11 @@
                                 <ul style="margin-top: 40px; ">
                                     <li>
                                         <i class="lni lni-checkmark"
-                                            style="margin-right: 10px;color:blue;margin-bottom: 15px;line-height: 30px;"></i>
+                                           style="margin-right: 10px;color:blue;margin-bottom: 15px;line-height: 30px;"></i>
                                         Gestion des fiches mutuelles
                                     <li>
                                         <i class="lni lni-checkmark"
-                                            style="margin-right: 10px;color:blue;margin-bottom: 15px;line-height: 30px;"></i>
+                                           style="margin-right: 10px;color:blue;margin-bottom: 15px;line-height: 30px;"></i>
                                         Des modèles de feuilles de soins préremplies
                                     </li>
 
@@ -404,7 +408,7 @@
                             <img src="
                         {{ asset('public/theme/default/assets/images/screen3.png') }}
                         "
-                                alt="" class="my__img__features">
+                                 alt="" class="my__img__features">
                         </div>
 
                     </div>
@@ -429,7 +433,7 @@
                             <img src="
                         {{ asset('public/theme/default/assets/images/screen7.png') }}
                         "
-                                alt="" class="my__img__features">
+                                 alt="" class="my__img__features">
                         </div>
                         <div class="col-md-5 offset-1" data-aos="fade-up" data-aos-duration="2500">
                             <div>
@@ -480,9 +484,9 @@
                     <div class="row">
                         <div class="col-md-6" data-aos="fade-right" data-aos-duration="2500">
                             <img src="
-                        {{ asset('public/theme/default/assets/images/screen1s.png') }}
+                        {{ asset('public/theme/default/assets/images/depons.png') }}
                         "
-                                alt="" class="my__img__features">
+                                 alt="" class="my__img__features">
                         </div>
                         <div class="col-md-5 offset-1" data-aos="fade-up" data-aos-duration="2500">
                             <div>

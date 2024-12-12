@@ -100,7 +100,7 @@
                                                     </div>
                                                     <div class="features-content media-body">
                                                         <h4 class="features-title">Facturation et paiemenrs</h4>
-                                                        <p class="text">Suivez efficacement l'état financier de votre établissement, avec un gestion détaillé  de vos factures</p>
+                                                        <p class="text">Suivez efficacement l'état financier de votre cabinet, avec un gestion détaillé  de vos factures</p>
                                                     </div>
                                                 </div> <!-- features content -->
                                             </div>

@@ -53,7 +53,6 @@ final class ProgressBar
     private $startTime;
     private $stepWidth;
     private $percent = 0.0;
-    private $formatLineCount;
     private $messages = [];
     private $overwrite = true;
     private $terminal;
@@ -114,8 +113,6 @@ final class ProgressBar
      * Gets the placeholder formatter for a given name.
      *
      * @param string $name The placeholder name (including the delimiter char like %)
-     *
-     * @return callable|null A PHP callable
      */
     public static function getPlaceholderFormatterDefinition(string $name): ?callable
     {
@@ -147,8 +144,6 @@ final class ProgressBar
      * Gets the format for a given name.
      *
      * @param string $name The format name
-     *
-     * @return string|null A format string
      */
     public static function getFormatDefinition(string $name): ?string
     {
@@ -174,9 +169,12 @@ final class ProgressBar
         $this->messages[$name] = $message;
     }
 
+    /**
+     * @return string|null
+     */
     public function getMessage(string $name = 'message')
     {
-        return $this->messages[$name];
+        return $this->messages[$name] ?? null;
     }
 
     public function getStartTime(): int
@@ -244,11 +242,7 @@ final class ProgressBar
 
     public function getBarCharacter(): string
     {
-        if (null === $this->barChar) {
-            return $this->max ? '=' : $this->emptyBarChar;
-        }
-
-        return $this->barChar;
+        return $this->barChar ?? ($this->max ? '=' : $this->emptyBarChar);
     }
 
     public function setEmptyBarCharacter(string $char)
@@ -302,7 +296,7 @@ final class ProgressBar
      *
      * @param int|null $max Number of steps to complete the bar (0 if indeterminate), if null it will be inferred from $iterable
      */
-    public function iterate(iterable $iterable, int $max = null): iterable
+    public function iterate(iterable $iterable, ?int $max = null): iterable
     {
         $this->start($max ?? (is_countable($iterable) ? \count($iterable) : 0));
 
@@ -320,7 +314,7 @@ final class ProgressBar
      *
      * @param int|null $max Number of steps to complete the bar (0 if indeterminate), null to leave unchanged
      */
-    public function start(int $max = null)
+    public function start(?int $max = null)
     {
         $this->startTime = time();
         $this->step = 0;
@@ -454,8 +448,6 @@ final class ProgressBar
         } else {
             $this->format = $format;
         }
-
-        $this->formatLineCount = substr_count($this->format, "\n");
     }
 
     /**
@@ -472,7 +464,7 @@ final class ProgressBar
         if ($this->overwrite) {
             if (null !== $this->previousMessage) {
                 if ($this->output instanceof ConsoleSectionOutput) {
-                    $messageLines = explode("\n", $message);
+                    $messageLines = explode("\n", $this->previousMessage);
                     $lineCount = \count($messageLines);
                     foreach ($messageLines as $messageLine) {
                         $messageLineLength = Helper::width(Helper::removeDecoration($this->output->getFormatter(), $messageLine));
@@ -482,7 +474,8 @@ final class ProgressBar
                     }
                     $this->output->clear($lineCount);
                 } else {
-                    for ($i = 0; $i < $this->formatLineCount; ++$i) {
+                    $lineCount = substr_count($this->previousMessage, "\n");
+                    for ($i = 0; $i < $lineCount; ++$i) {
                         $this->cursor->moveToColumn(1);
                         $this->cursor->clearLine();
                         $this->cursor->moveUp();
